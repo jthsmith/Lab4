@@ -62,28 +62,41 @@ void Order_Init(Order *order, istream &is) {
 int main(int argc, char *argv[]) {
     // check if there are three arguments in the command line
     // and print a helpful message
-    if(___) {
+    if(argc != 3) {
         cout << "Make sure you order properly!" << endl;
         cout << "Usage: ./delivery.exe [delivery_file] [tip_percentage]" << endl;
         return 1;
     }
 
     // create a file stream for the input file
+    ifstream fin(argv[1]);
 
 
     // read in the number of orders
+    int num_orders;
+    fin >> num_orders;
 
 
     // intalize num_orders orders and add each order to this vector
     vector<Order> orders;
+    Order *order;
+    for (int i = 0; i < num_orders; i++){
+        string line;
+        getline(fin, line);
+        Order_Init(order, line);
+        orders.push_back(*order);
+    }
 
 
     // calculate the total cost for the delivery (all orders)
-
+    double order_price = 0.0;
+    for (int i = 0; i< num_orders; i++){
+        order_prics += orders.at(i).total_price;
+    }
 
     // Print out the total cost with tip
 
-    cout << "The delivery total with tip is " << ___;
+    cout << "The delivery total with tip is " << ;
 
 
 }
