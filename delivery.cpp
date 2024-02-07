@@ -28,8 +28,9 @@ struct Order{
 //    - The order of meals into the meals array does not matter (e.g. Dessert can come before Appetizer).
 void Order_Init(Order *order, istream &is) {
     int num_meals;
+    int order_num;
     // read in order number and number of meals from 'is'
-    is >> ___ >> ___;
+    is >> order_num >> num_meals;
 
     // initialize variables that will be read by stream
     string type, name;
