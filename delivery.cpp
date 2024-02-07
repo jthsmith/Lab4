@@ -36,12 +36,13 @@ void Order_Init(Order *order, istream &is) {
     string type, name;
     double meal_price;
     double total_price = 0.0;
-    Meal food;
+    
 
     // initialize the meals by reading from 'is'
     for (int i = 0; i < num_meals; ++i) {
         is >> type >> name >> meal_price;
         total_price += meal_price;
+        Meal food;
         food.type = type;
         food.name = name;
         food.price = meal_price;
