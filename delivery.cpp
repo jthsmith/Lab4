@@ -35,12 +35,22 @@ void Order_Init(Order *order, istream &is) {
     // initialize variables that will be read by stream
     string type, name;
     double meal_price;
-    double total_price = 0.0
+    double total_price = 0.0;
+    Meal food;
 
     // initialize the meals by reading from 'is'
     for (int i = 0; i < num_meals; ++i) {
-
+        is >> type >> name >> meal_price;
+        total_price += meal_price;
+        food.type = type;
+        food.name = name;
+        food.price = meal_price;
+        order->meals.push_back(food);
     }
+
+    order->order_num = order_num;
+    order->total_cost = total_price;
+
 
     // set the total cost for the order   
 
