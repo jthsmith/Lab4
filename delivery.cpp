@@ -79,24 +79,24 @@ int main(int argc, char *argv[]) {
 
     // intalize num_orders orders and add each order to this vector
     vector<Order> orders;
-    Order *order;
+    
     for (int i = 0; i < num_orders; i++){
-        string line;
-        getline(fin, line);
-        Order_Init(order, line);
-        orders.push_back(*order);
+        Order order;
+        Order_Init(&order, fin);
+        orders.push_back(order);
     }
 
 
     // calculate the total cost for the delivery (all orders)
     double order_price = 0.0;
     for (int i = 0; i< num_orders; i++){
-        order_prics += orders.at(i).total_price;
+        order_price += orders.at(i).total_cost;
     }
+    int tip = stoi(argv[2]);
 
     // Print out the total cost with tip
 
-    cout << "The delivery total with tip is " << ;
+    cout << "The delivery total with tip is " << (tip/100+1)*order_price;
 
 
 }
